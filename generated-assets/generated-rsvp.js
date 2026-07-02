@@ -27,7 +27,7 @@
   function fillSelect(select, totalTickets) {
     if (!select) return;
     var tickets = parseInt(totalTickets, 10);
-    if (!Number.isFinite(tickets) || tickets < 1) tickets = 1;
+    if (!Number.isFinite(tickets) || tickets < 0) tickets = 0;
 
     select.innerHTML = "";
     for (var i = tickets; i > 0; i--) {
@@ -292,19 +292,19 @@
 
     async function loadGuest() {
       if (!token) {
-        if (nameDisplay) nameDisplay.textContent = "Invitado Genérico";
+        if (nameDisplay) nameDisplay.textContent = "Invitado Generico";
         if (ticketsDisplay) ticketsDisplay.textContent = "0";
-        if (nameInput) nameInput.value = "Invitado Genérico";
+        if (nameInput) nameInput.value = "Invitado Generico";
         if (nameInput) nameInput.readOnly = true;
-        fillSelect(attendanceSelect, 1);
+        fillSelect(attendanceSelect, 0);
         setStatus(form, "", false);
         return;
       }
 
       if (!apiBase) {
-        if (nameInput) nameInput.value = "Invitado Genérico";
+        if (nameInput) nameInput.value = "Invitado Generico";
         if (nameInput) nameInput.readOnly = true;
-        fillSelect(attendanceSelect, 1);
+        fillSelect(attendanceSelect, 0);
         setStatus(form, "Configura la URL de la API para activar las confirmaciones.", true);
         return;
       }
@@ -314,8 +314,8 @@
         if (!response.ok) throw new Error("No se pudo cargar el invitado.");
         var guest = await response.json();
 
-        var guestName = guest["Nombre(s)"] || guest.nombre || guest.name || "Invitado de Honor";
-        var tickets = guest.Tickets || guest.tickets || guest.pases || 1;
+        var guestName = guest["Nombre(s)"] || guest.nombre || guest.name || "Invitado Generico";
+        var tickets = guest.Tickets || guest.tickets || guest.pases || 0;
 
         if (nameDisplay) nameDisplay.textContent = guestName;
         if (ticketsDisplay) ticketsDisplay.textContent = tickets;
@@ -331,9 +331,9 @@
         setStatus(form, "", false);
       } catch (error) {
         console.error("Error cargando invitado:", error);
-        if (nameInput) nameInput.value = "Invitado Genérico";
+        if (nameInput) nameInput.value = "Invitado Generico";
         if (nameInput) nameInput.readOnly = true;
-        fillSelect(attendanceSelect, 1);
+        fillSelect(attendanceSelect, 0);
         setStatus(form, "No se pudo cargar el invitado. Revisa la API o el token.", true);
       }
     }
