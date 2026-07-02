@@ -1,0 +1,77 @@
+{
+  "generatedAt": "2026-07-01T18:45:00.1593146-04:00",
+  "TemplateName": "XVRosaPastel",
+  "EventName": "XV Mia Orosco",
+  "Slug": "mia-orosco-8-2026-3",
+  "OutputPath": "C:\\Users\\brran\\OneDrive\\Escritorio\\InvitacionesGeneradas\\mia-orosco-8-2026-3",
+  "ApiBaseUrl": "https://invitation-backend.fly.dev/api",
+  "guidedData": {
+    "EventKind": "XV",
+    "EventName": "XV Mia Orosco",
+    "EventDate": "2026-08-01",
+    "EventTime": "18:00",
+    "BrideFirst": true,
+    "BrideName": "",
+    "GroomName": "",
+    "BrideParents": "",
+    "GroomParents": "",
+    "WeddingSponsors": "",
+    "QuinceaneraName": "Mia Orosco",
+    "QuinceaneraParents": null,
+    "QuinceaneraSponsors": null,
+    "CeremonyName": "",
+    "CeremonyTime": "",
+    "CeremonyMapUrl": "",
+    "CeremonyAddress": "",
+    "ReceptionName": "La Terraza",
+    "ReceptionTime": "18:00",
+    "ReceptionMapUrl": "https://maps.app.goo.gl/hUuaX6PfGz2sKLas6?g_st=ic",
+    "ReceptionAddress": null,
+    "DressCode": "FORMAL DE GALA",
+    "GiftsText": null,
+    "PhotoShareUrl": null,
+    "MainMessage": "Ser\u00E1 de mucha alegr\u00EDa contar con tu presencia en este d\u00EDa tan importante para mi.",
+    "AdultsOnlyMessage": null,
+    "ItineraryCount": 4,
+    "ReservedColors": [
+      "#75ddea"
+    ],
+    "Itinerary": [
+      {
+        "Time": "18:00",
+        "Title": "Recepci\u00F3n Social",
+        "IconUrl": "https://vogastudios.com/wp-content/uploads/2025/09/wired-outline-18-location-pin-hover-jump.gif"
+      },
+      {
+        "Time": "19:00",
+        "Title": "Acto Principal",
+        "IconUrl": "https://vogastudios.com/wp-content/uploads/2025/09/wired-outline-269-avatar-female-hover-glance.gif"
+      },
+      {
+        "Time": "20:30",
+        "Title": "Cena",
+        "IconUrl": "https://vogastudios.com/wp-content/uploads/2026/02/icono-cena-rosa-oscuro.gif"
+      },
+      {
+        "Time": "21:00",
+        "Title": "Fiesta",
+        "IconUrl": "https://vogastudios.com/wp-content/uploads/2025/09/wired-outline-1062-disco-ball-hover-pinch.gif"
+      },
+      {
+        "Time": "22:00",
+        "Title": "Torta",
+        "IconUrl": null
+      },
+      {
+        "Time": null,
+        "Title": "Cierre",
+        "IconUrl": null
+      }
+    ]
+  },
+  "FilesCopied": 24,
+  "TextsChanged": 13,
+  "LinksChanged": 0,
+  "AssetsChanged": 1,
+  "RsvpFormInjected": true
+}
