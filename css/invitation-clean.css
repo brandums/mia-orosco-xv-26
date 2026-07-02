@@ -658,3 +658,49 @@ body { margin: 0; overflow-x: hidden; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
 }
+
+/* === Artistas section === */
+.v2-artistas-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 15px;
+  padding: 30px;
+  border-radius: 15px;
+  background:
+    linear-gradient(128deg, rgba(52,64,71,.96) 0%, rgba(105,117,126,.94) 38%, rgba(150,160,167,.92) 52%, rgba(78,90,98,.95) 72%, rgba(47,55,61,.97) 100%) !important;
+  border: 1px solid rgba(208, 219, 225, .58);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.68),
+    inset 0 -1px 0 rgba(37,45,51,.42),
+    0 14px 30px rgba(47,54,59,.08),
+    0 0 30px rgba(191,238,250,.18);
+}
+.v2-artista-logo {
+  display: block;
+  flex: 0 0 auto;
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  image-rendering: auto;
+  shape-rendering: geometricPrecision;
+}
+.v2-artistas-container.zoom-animar {
+  will-change: auto;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: opacity .35s ease !important;
+}
+@media (max-width: 767px) {
+  .v2-artistas-container {
+    gap: 18px !important;
+    padding: 20px;
+  }
+  .v2-artista-logo {
+    width: 96px !important;
+    height: 96px !important;
+  }
+}
