@@ -9,6 +9,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     $$("img[title]").forEach((img) => img.removeAttribute("title"));
     injectRuntimeStyles();
+    setupViewportHeight();
     applyUrlOptions();
     setupEntrance();
     setupMusicButton();
@@ -45,6 +46,21 @@
     document.head.appendChild(style);
   }
 
+  function setupViewportHeight() {
+    const setViewportHeight = () => {
+      const viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+      document.documentElement.style.setProperty("--v2-viewport-height", `${Math.ceil(viewportHeight)}px`);
+    };
+
+    setViewportHeight();
+    window.addEventListener("resize", setViewportHeight, { passive: true });
+    window.addEventListener("orientationchange", () => window.setTimeout(setViewportHeight, 250), { passive: true });
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", setViewportHeight, { passive: true });
+      window.visualViewport.addEventListener("scroll", setViewportHeight, { passive: true });
+    }
+  }
+
   function setupEntrance() {
     const overlay =
       $("#v2-capa-bloqueo") ||
@@ -69,6 +85,7 @@
     const musicButton = $("#v2-boton-control");
     if (!overlay || !enterButtons.length) return;
 
+    document.body.classList.add("v2-entrada-bloqueada");
     document.body.style.overflow = "hidden";
     let opened = false;
     const tryPlayAudio = () => {
@@ -113,7 +130,10 @@
       }
       overlay.classList.add("v2-abrir");
       overlay.style.pointerEvents = "none";
-      window.setTimeout(() => { document.body.style.overflow = "auto"; }, 1000);
+      window.setTimeout(() => {
+        document.body.classList.remove("v2-entrada-bloqueada");
+        document.body.style.overflow = "auto";
+      }, 1000);
       window.setTimeout(() => { overlay.style.display = "none"; }, 1500);
     };
     enterButtons.forEach((button) => {

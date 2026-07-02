@@ -377,9 +377,36 @@ body{background-color:var(--base-2);color:var(--contrast);}a{color:var(--accent)
 /* --- Capa de Bloqueo --- */
 body:not(.elementor-editor-active) #v2-capa-bloqueo {
     position: fixed !important;
-    top: 0; left: 0; width: 100vw; height: 100vh;
+    inset: 0 !important;
+    width: 100vw;
+    height: auto !important;
+    min-height: 100vh;
+    min-height: 100dvh;
+    min-height: var(--v2-viewport-height, 100vh);
     z-index: 9999;
+    overflow: hidden;
+    isolation: isolate;
+    background: #FFEEF2 !important;
     transition: opacity 1.2s ease-in-out, visibility 1.2s !important;
+}
+
+body:not(.elementor-editor-active) #v2-capa-bloqueo::before {
+    content: "";
+    position: fixed;
+    inset: -2px;
+    z-index: -1;
+    pointer-events: none;
+    background: #FFEEF2;
+}
+
+body:not(.elementor-editor-active) #v2-capa-bloqueo > .elementor-container {
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    min-height: var(--v2-viewport-height, 100vh) !important;
+}
+
+body.v2-entrada-bloqueada {
+    overflow: hidden !important;
 }
 
 #v2-capa-bloqueo.v2-abrir {
